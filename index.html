@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CalmlyMood</title>
+  <title>CalmlyMood Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Основний стиль -->
   <style>
@@ -20,38 +20,48 @@
       background: #fdfdfd;
       color: #333;
     }
+
     header {
       background: #f7f7f7;
       padding: 20px 0;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
       font-size: 2em;
     }
+
     nav {
       margin-top: 10px;
     }
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: #555;
     }
+
     nav a:hover {
       color: #0077cc;
     }
+
     .hero {
       background: #e0f7fa;
       padding: 50px 20px;
       text-align: center;
     }
+
     .hero h2 {
       margin: 0 0 20px 0;
     }
+
     .hero p {
       font-size: 1.1em;
       color: #555;
     }
+
+    /* ГАЛЕРЕЯ */
     .products {
       display: flex;
       flex-wrap: wrap;
@@ -59,35 +69,51 @@
       padding: 40px 20px;
       justify-content: center;
     }
+
     .product {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
       width: 300px;
-      padding: 15px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      cursor: pointer;
     }
+
     .product img {
       max-width: 100%;
       border-radius: 5px;
+      transition: transform 0.2s;
     }
+
+    .product img:hover {
+      transform: scale(1.05);
+    }
+
     .product h3 {
-      margin: 15px 0 10px 0;
+      margin: 10px 0 5px 0;
     }
-    .product p {
-      font-size: 0.95em;
-      color: #666;
+
+    /* Лайтбокс */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
     }
-    .product a {
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-      color: white;
-      background: #0077cc;
-      padding: 10px 20px;
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
       border-radius: 5px;
     }
+
+    .lightbox:target {
+      display: flex;
+    }
+
     footer {
       background: #f7f7f7;
       padding: 20px;
@@ -103,8 +129,7 @@
 <header>
   <h1>CalmlyMood</h1>
   <nav>
-    <!-- Навігація -->
-    <a href="#products">Shop</a>
+    <a href="#products">Gallery</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -113,52 +138,44 @@
 <!-- Hero / банер -->
 <section class="hero">
   <h2>Welcome to CalmlyMood</h2>
-  <p>Your online destination for carefully curated products that calm and inspire.</p>
+  <p>Explore our curated collection of products that bring calm and inspiration.</p>
 </section>
 
-<!-- Products / товари -->
+<!-- Products / галерея -->
 <section class="products" id="products">
-  
   <!-- Altair -->
   <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="Altair">
     <h3>Altair</h3>
-    <p>Short description of Altair.</p>
-    <a href="Altair/2.1.jpg" class="image fit thumb"><img src="Altair/2.1.jpg" alt="" /></a>
+    <a href="#altair1"><img src="Altair/1.jpg" alt="Altair"></a>
   </div>
-
   <!-- Elnath -->
   <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="Elnath">
     <h3>Elnath</h3>
-    <p>Short description of Elnath.</p>
-    <a href="Elnath/3.1.jpg" class="image fit thumb"><img src="Elnath/3.1.jpg" alt="" /></a>
+    <a href="#elnath1"><img src="Elnath/1.jpg" alt="Elnath"></a>
   </div>
-
   <!-- Lyra -->
   <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="Lyra">
     <h3>Lyra</h3>
-    <p>Short description of Lyra.</p>
-    <a href="Lyra/1.1.jpg" class="image fit thumb"><img src="Lyra/1.1.jpg" alt="" /></a>
+    <a href="#lyra1"><img src="Lyra/1.jpg" alt="Lyra"></a>
   </div>
-
   <!-- Seren -->
   <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="Seren">
     <h3>Seren</h3>
-    <p>Short description of Seren.</p>
-    <a href="Seren/4.1.jpg" class="image fit thumb"><img src="Seren/4.1.jpg" alt="" /></a>
+    <a href="#seren1"><img src="Seren/1.jpg" alt="Seren"></a>
   </div>
-
   <!-- Vega -->
   <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="Vega">
     <h3>Vega</h3>
-    <p>Short description of Vega.</p>
-    <a href="Vega/5.1.jpg" class="image fit thumb"><img src="Vega/5.1.jpg" alt="" /></a>
+    <a href="#vega1"><img src="Vega/1.jpg" alt="Vega"></a>
   </div>
 </section>
+
+<!-- Лайтбокси для фото -->
+<div id="altair1" class="lightbox"><a href="#products"><img src="Altair/2.1.jpg" alt="Altair"></a></div>
+<div id="elnath1" class="lightbox"><a href="#products"><img src="Elnath/3.1.jpg" alt="Elnath"></a></div>
+<div id="lyra1" class="lightbox"><a href="#products"><img src="Lyra/1.1.jpg" alt="Lyra"></a></div>
+<div id="seren1" class="lightbox"><a href="#products"><img src="Seren/4.1.jpg" alt="Seren"></a></div>
+<div id="vega1" class="lightbox"><a href="#products"><img src="Vega/5.1.jpg" alt="Vega"></a></div>
 
 <!-- About / про нас -->
 <section id="about" style="padding: 40px 20px; text-align: center;">
